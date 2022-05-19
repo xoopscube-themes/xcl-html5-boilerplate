@@ -26,7 +26,7 @@ License | MIT
 
           Apache, Nginx, etc. PHP 7.2.x
           MySQL 5.6, MariaDB  InnoDB utf8 / utf8mb4
-          XCL version > 2.3.1
+          XCL version >= 2.3.1
 
 
 
@@ -58,11 +58,14 @@ This implies that PHP code is application logic, and is separated from the prese
 1. Select a branch from this repo and, from the dropdown button "Code" select Clone or Download zip.  
 2. Extract and upload the folder "theme-name" to your domain, eg.: public/html/themes/theme-name/*.*  
 3. From the Administration dashboard, activate the Theme (checkbox/select).  
-  
-     > **X-Update Store**    
-     > Login to your the Administration dashboard » X-Update » Themes    
-     > Select the theme from the Theme Store    
-     > Proceed to automatically download and install.
+
+### User-friendly installation
+
+**X-Update Store**  
+
+1. Login to your the Administration Control Panel » X-Update » Themes    
+2. Select the theme from the Theme Store    
+3. Proceed to automatically download and install.
 
     
 
