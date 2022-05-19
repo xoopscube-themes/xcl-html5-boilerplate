@@ -1,0 +1,283 @@
+<!doctype html>
+<html class="no-js" lang="<{$xoops_langcode}>">
+<!-- ===========================
+    Theme : XCL Flex Starter
+    Distribution : XCL 2.3.1
+    Version : 2.3.1
+    Author : Nuno Luciano aka Gigamaster
+    Date : 2020-11-01
+    URL : https://github.com/xoopscube/
+=========================== -->
+<head>
+    <meta charset="utf-8">
+    <title><{$xoops_sitename}> - <{$xoops_pagetitle}></title>
+    <meta name="description" content="<{$xoops_meta_description}>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="<{$xoops_pagetitle}>">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+
+    <!-- Preload Style -->
+    <link rel="preload" href="<{$xoops_url}>/common/css/x-layout.css" as="style">
+    <!-- Preload Script -->
+    <link rel="preload" href="<{$xoops_url}>/common/js/jquery.min.js" as="script">
+    <link rel="preload" href="<{$xoops_url}>/common/js/jquery-ui.min.js" as="script">
+
+    <!-- Icons -->
+    <link rel="icon" href="<{$xoops_url}>/images/favicon.ico" sizes="any">
+    <link rel="icon" href="<{$xoops_url}>/images/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="<{$xoops_url}>/images/icon.png">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="<{$xoops_imageurl}>css/normalize.css">
+    <!-- Style X-Layout Flexbox Helper -->
+    <link rel="stylesheet" href="<{$xoops_url}>/common/css/x-layout.css" media="all">
+    <!-- Style themes/theme-name/style.css -->
+    <link rel="stylesheet" media="screen" href="<{$xoops_themecss}>">
+
+    <link rel="manifest" href="<{$xoops_imageurl}>site.webmanifest">
+    <meta name="theme-color" content="#fafafa">
+
+    <!-- Modules javascript -->
+    <script><{$xoops_js|regex_replace:"/(\/\/\-\->|<!\-\-)/":""}></script>
+    <!-- RMV: added module header -->
+    <{$xoops_module_header}>
+    <script defer>
+        <!--
+        <{* $xoops_js *}>
+        // -->
+    </script>
+
+</head>
+
+<body>
+
+
+<{* 🔻 Add your Theme application content here 🔻 *}>
+
+<header layout="row center-justify sm-column sm-p1" self="size-x1" id="topage">
+
+    <div layout="row center-left" self="size-1of3 sm-full">
+        <a href="<{$xoops_url}>/" title="<{$xoops_sitename}> - <{$xoops_slogan}>" class="sitelogo">
+            <img src="<{$xoops_url}>/images/logo.svg" width="140" alt="<{$xoops_sitename}>">
+        </a>
+    </div>
+
+    <h1 self="size-x1 sm-hide" class="sitename"><{$xoops_sitename}></h1>
+
+    <div self="right-center sm-full" class="search">
+        <form action="<{$xoops_url}>/search.php" method="get" role="search">
+            <input type="hidden" name="action" value="results" aria-label="Search">
+            <label><input type="search" name="query" accesskey="S"></label>
+            <button type="submit" class="ui-button" name="submit" value="search"><img class="svg search" src="<{$xoops_url}>/images/icons/search.svg" alt="Search"></button>
+        </form>
+    </div>
+
+</header>
+
+
+<main layout="column" self="size-x1" id="top">
+
+
+    <section class="render-view" layout="md-column">
+
+
+        <{* ---------- BLOCK-LEFT *}>
+        <{if $xoops_showlblock==1}>
+        <aside class="side-left" self="size-xsmall sm-full">
+
+            <{foreach item=block from=$xoops_lblocks}>
+            <{if !$block.title|strstr:"Topage"}>
+            <div class="block-left b-<{$block.weight}>">
+                <h4 layout="row center-justify" class="block-title">
+                    <{if $xoops_isadmin}>
+                        <{$block.title}>
+                    <{else}>
+                        <{if ! $block.title|strstr:"none"}><{$block.title}><{/if}>
+                    <{/if}>
+                </h4>
+                <div class="block-content"><{$block.content}></div>
+            </div>
+            <{/if}>
+            <{/foreach}>
+
+        </aside>
+        <{/if}>
+        <{* ---------- BLOCK-LEFT *}>
+
+
+        <{* ---------- MODULE CONTENT or CUSTOM TEMPLATE *}>
+        <div class="content" self="size-x1">
+
+            <{if !empty($xoops_contents)}>
+
+                <{$xoops_contents}>
+
+            <{else}>
+
+                <{if $xoops_isadmin}>
+                <div layout="row center-right">
+                    <a class="ui-button" href="<{$xoops_url}>/modules/legacy/admin/index.php?action=PreferenceEdit&confcat_id=1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                            <path d="M3 17v2h6v-2H3M3 5v2h10V5H3m10 16v-2h8v-2h-8v-2h-2v6h2M7 9v2H3v2h4v2h2V9H7m14 4v-2H11v2h10m-6-4h2V7h4V5h-4V3h-2v6z" fill="currentColor"/>
+                            <rect x="0" y="0" width="1em" height="1em" fill="rgba(0, 0, 0, 0)" /></svg> Start Module</a>
+                    <a class="ui-button" href="<{$xoops_url}>/modules/altsys/admin/index.php?mode=admin&lib=altsys&page=mytplsform&tpl_file=legacy_app_front_page.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                            <path d="M12.89 3l1.96.4L11.11 21l-1.96-.4L12.89 3m6.7 9L16 8.41V5.58L22.42 12L16 18.41v-2.83L19.59 12M1.58 12L8 5.58v2.83L4.41 12L8 15.58v2.83L1.58 12z" fill="currentColor"/>
+                            <rect x="0" y="0" width="1em" height="1em" fill="rgba(0, 0, 0, 0)" />
+                        </svg> Edit Template</a>
+                </div>
+                <{/if}>
+
+                <{include file='db:legacy_app_front_page.html'}>
+
+            <{/if}>
+
+
+        </div>
+        <{* ---------- /MODULE CONTENT or CUSTOM TEMPLATE *}>
+
+
+        <{* ---------- BLOCK-LEFT *}>
+        <{if $xoops_showrblock==1}>
+        <aside class="side-right" self="size-xsmall sm-full">
+            <{foreach item=block from=$xoops_rblocks}>
+                <{if !$block.title|strstr:"Topage"}>
+                <div class="block-right b-<{$block.weight}>">
+                    <h4 layout="row center-justify" class="block-title">
+                        <{if $xoops_isadmin}>
+                            <{$block.title}>
+                        <{else}>
+                            <{if ! $block.title|strstr:"none"}><{$block.title}><{/if}>
+                        <{/if}>
+                    </h4>
+                    <div class="block-content"><{$block.content}></div>
+                </div>
+                <{/if}>
+            <{/foreach}>
+        </aside>
+        <{/if}>
+        <{* ---------- /BLOCK-LEFT *}>
+
+
+    </section>
+
+
+    <{* ---------- BLOCKS-CENTER *}>
+
+    <{if $xoops_showcblock==1}>
+    <section class="center-columns">
+
+        <div layout="row center md-column">
+
+
+            <{* ---------- BLOCK-CENTER-LEFT *}>
+            <{if $xoops_clblocks}>
+            <div self="size-xsmall md-first md-full">
+                <{* ---------- BLOCK Center-Left *}>
+                <{foreach item=block from=$xoops_clblocks}>
+                    <{if !$block.title|strstr:"Topage"}>
+                    <div class="block-center-left b-<{$block.weight}>">
+                        <h4 layout="row center-justify" class="block-title">
+                            <{if $xoops_isadmin}>
+                                <{$block.title}>
+                            <{else}>
+                                <{if ! $block.title|strstr:"none"}><{$block.title}><{/if}>
+                            <{/if}>
+                        </h4>
+                        <div class="block-content"><{$block.content}></div>
+                    </div>
+                    <{/if}>
+                <{/foreach}>
+            </div>
+            <{/if}>
+            <{* ---------- /BLOCK-CENTER-LEFT *}>
+
+
+            <{* ---------- BLOCK-CENTER-CENTER *}>
+            <{if $xoops_ccblocks}>
+            <div self="size-x1 mx-6 md-order-2 md-full">
+                <{foreach item=block from=$xoops_ccblocks}>
+                    <{if !$block.title|strstr:"Topage"}>
+                    <div class="block-center-center b-<{$block.weight}>">
+                        <h4 layout="row center-justify" class="block-title">
+                            <{if $xoops_isadmin}>
+                                <{$block.title}>
+                            <{else}>
+                                <{if ! $block.title|strstr:"none"}><{$block.title}><{/if}>
+                            <{/if}>
+                        </h4>
+                        <div class="block-content"><{$block.content}></div>
+                    </div>
+                    <{/if}>
+                <{/foreach}>
+            </div>
+            <{/if}>
+            <{* ---------- /BLOCK-CENTER-CENTER *}>
+
+
+
+            <{* ---------- BLOCK-CENTER-RIGHT *}>
+            <{if $xoops_crblocks}>
+            <div self="size-xsmall sm-full md-order-3 md-full">
+                <{foreach item=block from=$xoops_crblocks}>
+                    <{if !$block.title|strstr:"Topage"}>
+                    <div class="block-center-right b-<{$block.weight}>">
+                        <h4 layout="row center-justify" class="block-title">
+                            <{if $xoops_isadmin}>
+                                <{$block.title}>
+                            <{else}>
+                                <{if ! $block.title|strstr:"none"}><{$block.title}><{/if}>
+                            <{/if}>
+                        </h4>
+                        <div class="block-content"><{$block.content}></div>
+                    </div>
+                    <{/if}>
+                <{/foreach}>
+            </div>
+            <{/if}>
+            <{* ---------- /BLOCK-CENTER-RIGHT *}>
+
+
+        </div>
+
+    </section>
+    <{/if}>
+
+    <{* ---------- /BLOCKS-CENTER LOOP *}>
+
+
+</main>
+
+
+
+<{* ---------- FOOTER + BANNER LOOP *}>
+<footer layout="column stretch-justify sm-column">
+    <!-- BANNER -->
+    <{if $xoops_banner and $xoops_banner!=""}><{$xoops_banner}><{/if}>
+
+    <!-- Accesskey Helper -->
+    <p><kbd>Alt</kbd>+<kbd>⇧ Shift</kbd>+<kbd>S</kbd> search <kbd>tab</kbd> next link : <{$xoops_sitename}> - <{$xoops_slogan}>
+    <br>
+    <!-- Custom Footer copyright ( Dashboard » Renderer » Preferences ) -->
+    <small><{$xoops_footer}></small></p>
+</footer>
+<{* ---------- /FOOTER + BANNER LOOP *}>
+
+
+<{* 🔺 Add your Them application content here 🔺 *}>
+
+<a id="ui-scroll-top" aria-label="Scroll to Top"></a>
+
+<{* ---------- JavaScript App Utils *}>
+<script src="<{$xoops_imageurl}>js/vendor/modernizr-3.11.8.min.js"></script>
+<script src="<{$xoops_url}>/common/js/x-utils.js"></script>
+<script src="<{$xoops_imageurl}>js/app.js"></script>
+<{* ---------- Theme Plugins *}>
+
+
+</body>
+
+</html>
